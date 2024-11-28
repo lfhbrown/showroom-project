@@ -10,81 +10,78 @@
 .footer-column-container ul,
 a {
   list-style: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 0;
+  padding: 0; Remove padding;
   text-decoration: none;
 }
 .footer-column-container {
   display: flex; /* Flexbox for horizontal alignment */
   justify-content: space-evenly; /* Even spacing between columns */
   width: 100%; /* Span full width of the footer */
-  padding: 20px 0; /* Optional padding for spacing */
+  padding: 20px 20px; /* Optional padding for spacing */
   gap: 20px; /* Optional extra spacing between columns */
 }
 
-.footer-column-container > div {
-  flex: 1; /* Ensure each column has equal width */
-}
+
 .footer-column-container ul li {
-  margin-bottom: 10px; /* Adds spacing between list items */
+  margin-bottom: 25px; /* Adds spacing between list items */
 }
 
-.footer-column-container ul li:last-child {
-  margin-bottom: 0; /* Prevent extra space after the last item */
-}
+
 .footer-column-1 {
   display: flex;
   flex-direction: column;
+  justify-content:space-between;
+  
+  
 }
 .footer-column-2 {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
 }
+
 .footer-column-3 {
-  display: flex;
+ display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
 }
 .footer-column-4 {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   text-align: center;
+  justify-content: space-between;
 }
 .footer-column-5 {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
+  justify-content: flex-end;
 }
-.footer-column-5 ul {
-  margin-top: 67px;
-}
+
 .footer-column-6 {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
+  justify-content: flex-end;
 }
-.footer-column-6 {
-  margin-top: 67px;
-}
+
 .footer-links-container {
   display: flex; /* Flexbox for horizontal alignment */
-  justify-content: space-between; /* Evenly spaced links across the footer */
-  align-items: center; /* Vertically center the links */
-  width: 100%; /* Span the entire footer width */
-  padding: 10px; /* Optional padding for spacing */
-
-  background-color: #f8f9fa; /* Optional background */
-  gap: 10px; /* Optional spacing between items */
+  justify-content: space-around; /* Even spacing between columns */
+  width: 100%; /* Span full width of the footer */
+  padding: 10px 10px; /* Optional padding for spacing */
+  }
+.legal-links{
+  display: flex;
+  align-content: flex-start;
 }
 .legal-links a {
-  padding: 10px;
+  padding: 5px;
 }
 .region a {
-  padding: 10px;
+  padding: 5px;
 }

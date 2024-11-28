@@ -134,7 +134,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-links-container">
-        <div>
+        <div className="corpInc">
           <span>© ABC Inc. 2024</span>
         </div>
         <div className="legal-links">
