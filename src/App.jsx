@@ -1,5 +1,5 @@
-// import { useState } from "react";
-import "./App.css";
+import { useState } from "react";
+import { styled } from "styled-components";
 import Navbar from "./components/Fixed Components/Navbar";
 import Footer from "./components/Fixed Components/Footer";
 import Signup from "./components/Modal/Feedback";
