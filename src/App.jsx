@@ -9,14 +9,9 @@ import Gallery from "./components/Gallery/Gallery";
 
 function App() {
   return (
-    <div className="main">
-      <div className="NavBar">
-        <Navbar />
-      </div>
-      <Gallery />
-      <Showroom />
-      <Shop />
-      <Signup />
+    <div>
+      <Navbar />
+
       <Footer />
     </div>
   );

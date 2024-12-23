@@ -1,18 +1,157 @@
-import { useState, useEffect } from "react";
-import "./Footer.css";
+import { styled } from "styled-components";
+
+const FooterContainer = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%; /* Ensure it spans the entire width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  ul li {
+    margin-bottom: 25px; /* Adds spacing between list items */
+  }
+`;
+const FooterColumnContainer = styled.div`
+  display: flex; /* Flexbox for horizontal alignment */
+  justify-content: space-evenly; /* Even spacing between columns */
+  width: 100%; /* Span full width of the footer */
+`;
+const FooterColumn1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid black;
+`;
+const FooterColumn2 = styled.div`
+  display: flex;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+`;
+const FooterColumn3 = styled.div`
+  display: flex;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+`;
+const FooterColumn4 = styled.div`
+  display: flex;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+`;
+const FooterColumn5 = styled.div`
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  padding-top: 66px;
+  border: 1px solid black;
+
+  ul {
+    list-style: none;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+  }
+  a {
+    text-decoration: none;
+  }
+`;
+const FooterColumn6 = styled.div`
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  padding-top: 66px;
+  border: 1px solid black;
+
+  ul {
+    list-style: none;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+  }
+  a {
+    text-decoration: none;
+  }
+`;
+const FooterLinksContainer = styled.div`
+  display: flex; /* Flexbox for horizontal alignment */
+  justify-content: space-around; /* Even spacing between columns */
+  width: 100%; /* Span full width of the footer */
+  padding: 10px 10px; /* Optional padding for spacing */
+`;
+const CorpInc = styled.div`
+  border: 1px solid black;
+  span {
+    padding: 5px;
+  }
+`;
+const LegalLinks = styled.div`
+  display: flex;
+  align-content: flex-start;
+  border: 1px solid black;
+
+  a {
+    padding: 5px;
+  }
+`;
+const Region = styled.div`
+  border: 1px solid black;
+
+  a {
+    padding: 5px;
+  }
+`;
 const Footer = () => {
   return (
-    <div className="footer-container">
-      <div className="footer-column-container">
-        <div className="footer-column-1">
-          <div className="logo-container">
+    <FooterContainer>
+      <FooterColumnContainer>
+        <FooterColumn1>
+          <div>
             <h1>Logo</h1>
           </div>
-          <div className="social-icon-containter">
+          <div>
             <h2>Social Images</h2>
           </div>
-        </div>
-        <div className="footer-column-2">
+        </FooterColumn1>
+        <FooterColumn2>
           <h2>About</h2>
           <ul>
             <li>
@@ -31,8 +170,8 @@ const Footer = () => {
               <a href="">Feedback</a>
             </li>
           </ul>
-        </div>
-        <div className="footer-column-3">
+        </FooterColumn2>
+        <FooterColumn3>
           <h2>Support</h2>
           <ul>
             <li>
@@ -51,8 +190,8 @@ const Footer = () => {
               <a href="">Contact</a>
             </li>
           </ul>
-        </div>
-        <div className="footer-column-4">
+        </FooterColumn3>
+        <FooterColumn4>
           <h2>Contact</h2>
           <ul>
             <li>
@@ -78,8 +217,8 @@ const Footer = () => {
               <address>Email</address>
             </li>
           </ul>
-        </div>
-        <div className="footer-column-5">
+        </FooterColumn4>
+        <FooterColumn5>
           <ul>
             <li>
               <a href="">
@@ -104,8 +243,8 @@ const Footer = () => {
               <address>Email</address>
             </li>
           </ul>
-        </div>
-        <div className="footer-column-6">
+        </FooterColumn5>
+        <FooterColumn6>
           <ul>
             <li>
               <a href="">
@@ -130,24 +269,25 @@ const Footer = () => {
               <address>Email</address>
             </li>
           </ul>
-        </div>
-      </div>
-
-      <div className="footer-links-container">
-        <div className="corpInc">
+        </FooterColumn6>
+      </FooterColumnContainer>
+      <FooterLinksContainer>
+        <CorpInc>
           <span>© ABC Inc. 2024</span>
-        </div>
-        <div className="legal-links">
+        </CorpInc>
+
+        <LegalLinks>
           <a>Cookies</a>
           <a>Privacy</a>
           <a>Terms & Conditions</a>
-        </div>
-        <div className="region">
+        </LegalLinks>
+
+        <Region>
           <a>USA & Canada</a>
           <a>Rest of the World</a>
-        </div>
-      </div>
-    </div>
+        </Region>
+      </FooterLinksContainer>
+    </FooterContainer>
   );
 };
 
