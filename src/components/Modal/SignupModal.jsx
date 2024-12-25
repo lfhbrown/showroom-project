@@ -21,7 +21,7 @@ const ModalContainer = styled.div`
   border-radius: 8px; /* Rounds corners */
 
   img {
-    width: 550px;
+    width: 600px;
     object-fit: cover;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
