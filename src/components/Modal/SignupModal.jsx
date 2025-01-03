@@ -1,10 +1,12 @@
 import { styled } from "styled-components";
 import abc from "../assets/abc.jpg";
+import { fadeInOut } from "../GlobalStyles";
 
 const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5); /*Semi-transparent overlay */
   position: fixed; /* Ensures the overlay stays fixed to the viewport */
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 `;
@@ -59,22 +61,30 @@ const NameEmailForm = styled.form`
   flex-direction: column; /* Stacks inputs and buttons vertically */
   gap: 16px; /* Adds space between inputs and buttons */
   width: 100%; /* Ensures full width for child elements */
-  input,
-  button {
+  input {
     width: 50%; /* Centers and limits width */
     align-self: center; /* Centers each input/button */
     padding: 12px 24px; /*Adds inner padding to the button*/
   }
+  button {
+    width: 50%; /* Centers and limits width */
+    align-self: center; /* Centers each input/button */
+    padding: 12px 24px; /*Adds inner padding to the button*/
+    cursor: pointer; /* Makes it clear the element is clickable */
+  }
 `;
 const SignupModal = ({ onClose }) => {
+  const handleOverlayClick = (event) => {
+    event.stopPropagation(); // Prevent the click event from propagating to the Overlay
+  };
   return (
-    <Overlay>
-      <ModalContainer>
+    <Overlay onClick={onClose}>
+      <ModalContainer onClick={handleOverlayClick}>
         <img src={abc} alt="" />
         <ModalRight>
           <Close onClick={onClose}>✖</Close>
           <EmailSumbit>
-            <h1>Letters from ABC Corp</h1>
+            <h1>Letters from ABC Corp.</h1>
             <p>
               Come up with the solutions to your business problems with a little
               help from us. If you’d like, we’ll write to you every now and then
