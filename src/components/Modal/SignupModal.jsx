@@ -1,26 +1,36 @@
 import { styled } from "styled-components";
-import abc from "../assets/abc.jpg";
-import { fadeInOut } from "../GlobalStyles";
+import PropTypes from "prop-types";
+import logo from "../assets/deVOL-image-modal.jpg";
 
 const Overlay = styled.div`
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgba(0, 0, 0, 0.5); /*Semi-transparent overlay */
   position: fixed; /* Ensures the overlay stays fixed to the viewport */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 const ModalContainer = styled.div`
   max-width: 1100px;
   width: 100%;
   position: fixed;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  background-color: #5283bbcf;
+  background-color: #ffffff;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
-  border-radius: 8px; /* Rounds corners */
+  border-radius: 16px; /* Rounds corners */
 
   img {
     width: 600px;
@@ -56,6 +66,10 @@ const EmailSumbit = styled.div`
     padding-bottom: 10px;
   }
 `;
+const PrivacyPolicy = styled.p`
+  padding-top: 10px;
+  font-size: 10px;
+`;
 const NameEmailForm = styled.form`
   display: flex;
   flex-direction: column; /* Stacks inputs and buttons vertically */
@@ -65,11 +79,16 @@ const NameEmailForm = styled.form`
     width: 50%; /* Centers and limits width */
     align-self: center; /* Centers each input/button */
     padding: 12px 24px; /*Adds inner padding to the button*/
+    padding-bottom: 10px;
   }
   button {
     width: 50%; /* Centers and limits width */
     align-self: center; /* Centers each input/button */
     padding: 12px 24px; /*Adds inner padding to the button*/
+    border-radius: 16px;
+    font-size: 16px;
+    background-color: #27333f;
+    color: white;
     cursor: pointer; /* Makes it clear the element is clickable */
   }
 `;
@@ -80,7 +99,7 @@ const SignupModal = ({ onClose }) => {
   return (
     <Overlay onClick={onClose}>
       <ModalContainer onClick={handleOverlayClick}>
-        <img src={abc} alt="" />
+        <img src={logo} alt="" />
         <ModalRight>
           <Close onClick={onClose}>✖</Close>
           <EmailSumbit>
@@ -98,15 +117,21 @@ const SignupModal = ({ onClose }) => {
               <input type="email" placeholder="Email"></input>
               <button>Submit</button>
             </NameEmailForm>
-            <p>
+            <PrivacyPolicy>
               By signing up you agree to our <a href="">Privacy Policy</a>. You
               can unsubscribe at any time.
-            </p>
+            </PrivacyPolicy>
           </EmailSumbit>
         </ModalRight>
       </ModalContainer>
     </Overlay>
   );
 };
+
+SignupModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
+//Defining types for component props improves reusability of your components by validating received data.
+// It can warn other developers if they make a mistake while reusing the component with improper data type.
 
 export default SignupModal;

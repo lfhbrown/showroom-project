@@ -112,6 +112,7 @@ const FooterLinksContainer = styled.div`
   justify-content: space-around; /* Even spacing between columns */
   width: 100%; /* Span full width of the footer */
   padding: 10px 10px; /* Optional padding for spacing */
+  font-size: 12px;
 `;
 const CorpInc = styled.div`
   /* border: 1px solid black; */

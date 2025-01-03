@@ -2,12 +2,13 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import Navbar from "./components/Fixed Components/Navbar";
 import Footer from "./components/Fixed Components/Footer";
-import SignUp from "./components/Modal/SignUp";
+import SignUp from "./components/Modal/Signup";
 import Showroom from "./components/Showroom Components/Showroom";
 import Shop from "./components/Shop Components/Shop";
 import Gallery from "./components/Gallery/Gallery";
 
 const AppContainer = styled.div`
+  background-color: #ffffff;
   min-height: 100vh; /* Ensures the container takes up the full viewport height */
   display: flex;
   flex-direction: column;
