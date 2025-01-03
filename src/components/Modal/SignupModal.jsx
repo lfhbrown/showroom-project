@@ -85,11 +85,16 @@ const NameEmailForm = styled.form`
     width: 50%; /* Centers and limits width */
     align-self: center; /* Centers each input/button */
     padding: 12px 24px; /*Adds inner padding to the button*/
-    border-radius: 16px;
+    border-radius: 12px;
     font-size: 16px;
-    background-color: #27333f;
-    color: white;
+    border: 1px solid #595959;
+    color: #595959;
+    background-color: #ffffff;
     cursor: pointer; /* Makes it clear the element is clickable */
+    &:hover {
+      background-color: #27333f;
+      color: #ffffff;
+    }
   }
 `;
 const SignupModal = ({ onClose }) => {

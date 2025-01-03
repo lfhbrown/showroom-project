@@ -13,12 +13,17 @@ const SignUpContainer = styled.div`
   button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-    background-color: #27333f;
-    color: white;
+    background-color: #ffffff;
     width: 10%; /* Centers and limits width */
     padding: 12px 24px; /*Adds inner padding to the button*/
-    border-radius: 16px;
+    border-radius: 12px;
+    border: 1px solid #595959;
+    color: #595959;
     cursor: pointer; /* Makes it clear the element is clickable */
+    &:hover {
+      background-color: #27333f;
+      color: #ffffff;
+    }
   }
 `;
 
