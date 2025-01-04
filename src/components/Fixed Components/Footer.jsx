@@ -33,6 +33,10 @@ const FooterColumn2 = styled.div`
   }
   a {
     text-decoration: none;
+    color: #595959;
+  }
+  &:hover a {
+    border-bottom: solid;
   }
 `;
 const FooterColumn3 = styled.div`
@@ -53,6 +57,7 @@ const FooterColumn3 = styled.div`
 
   a {
     text-decoration: none;
+    color: #595959;
   }
 `;
 const FooterColumn4 = styled.div`
@@ -73,6 +78,7 @@ const FooterColumn4 = styled.div`
 
   a {
     text-decoration: none;
+    color: #595959;
   }
 `;
 const FooterColumn5 = styled.div`
@@ -80,6 +86,7 @@ const FooterColumn5 = styled.div`
   text-align: center;
   flex-direction: column;
   padding-top: 66px;
+  color: #595959;
   /* border: 1px solid black; */
 
   ul {
@@ -89,6 +96,7 @@ const FooterColumn5 = styled.div`
   }
   a {
     text-decoration: none;
+    color: #595959;
   }
 `;
 const FooterColumn6 = styled.div`
@@ -96,6 +104,7 @@ const FooterColumn6 = styled.div`
   text-align: center;
   flex-direction: column;
   padding-top: 66px;
+
   /* border: 1px solid black; */
 
   ul {
@@ -105,6 +114,7 @@ const FooterColumn6 = styled.div`
   }
   a {
     text-decoration: none;
+    color: #595959;
   }
 `;
 const FooterLinksContainer = styled.div`
