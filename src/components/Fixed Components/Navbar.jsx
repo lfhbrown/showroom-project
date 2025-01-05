@@ -16,6 +16,7 @@ const NavContainer = styled.div`
 
   ul {
     display: flex;
+    flex-direction: row;
     list-style: none; /* Remove bullets */
     margin: 0;
     cursor: pointer;
@@ -23,16 +24,17 @@ const NavContainer = styled.div`
   li {
     position: relative; /* Enables submenu positioning */
     padding: 15px 20px;
-    &:hover {
-      background-color: #27333f;
-      color: #ffffff;
+
+    &:hover > div {
+      opacity: 1;
+      pointer-events: auto; /* Makes submenu clickable */
     }
   }
 `;
 const Nav = styled.nav`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
-  /* border: 1px solid black; */
+  flex-direction: row;
 `;
 
 const Logo = styled.img`
@@ -42,19 +44,98 @@ const Logo = styled.img`
   cursor: pointer;
 `;
 
-const SubMenu = styled.div`
+const LongSubMenu = styled.div`
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  max-width: 1100px !important;
-  width: 100%;
-  left: 0;
-  right: 0;
-  margin: 0.8em auto;
+  top: 100%; /* Position submenu directly below parent */
+  left: 50%;
+  transform: translateX(-50%); /* Center it horizontally */
+  width: min-content;
   background-color: #dedede;
-  padding: 1em 2em 1em 3em;
+  padding: 1em;
   z-index: 9999;
-  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease-in-out;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+`;
+const ShortSubMenu = styled.div`
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%; /* Position submenu directly below parent */
+  left: 50%;
+  transform: translateX(-50%); /* Ensure horizontal centering */
+  background-color: #dedede;
+  padding: 1em;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+`;
+const SubMenuList = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ul {
+    margin-top: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    list-style: none;
+    color: black;
+    border-left: 2px solid #ccc; /* Optional styling for nested lists */
+    flex-direction: column;
+  }
+  li {
+    padding: 0.5em 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+    }
+  }
+`;
+
+const SubMenuListHeading = styled.a`
+  font-weight: bold;
+  font-size: 16px;
+  white-space: nowrap;
+`;
+
+const NavListItem = styled.li`
+  align-items: center;
+  /* padding: 15px 20px; */
+`;
+const LongSubMenuList1 = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const LongSubMenuList2 = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 const Navbar = () => {
@@ -68,12 +149,14 @@ const Navbar = () => {
         <NavContainer>
           <Nav>
             <ul>
-              <li>
+              <NavListItem>
                 <a>Kitchens</a>
-                <SubMenu>
+                <LongSubMenu>
                   <ul>
-                    <li>
-                      <a>The Real Shaker Kitchen</a>
+                    <SubMenuList>
+                      <SubMenuListHeading>
+                        The Real Shaker Kitchen
+                      </SubMenuListHeading>
                       <ul>
                         <li>
                           <a>Shaker Projects</a>
@@ -82,17 +165,21 @@ const Navbar = () => {
                           <a>Shaker Catalogue & Prices</a>
                         </li>
                       </ul>
-                    </li>
-                    <li>
-                      <a>The Classic English Kitchen</a>
+                    </SubMenuList>
+                    <SubMenuList>
+                      <SubMenuListHeading>
+                        The Classic English Kitchen
+                      </SubMenuListHeading>
                       <ul>
                         <li>
                           <a>Classic Projects</a>
                         </li>
                       </ul>
-                    </li>
-                    <li>
-                      <a>The Heirloom Collection</a>
+                    </SubMenuList>
+                    <SubMenuList>
+                      <SubMenuListHeading>
+                        The Heirloom Collection
+                      </SubMenuListHeading>
                       <ul>
                         <li>
                           <a>Heirloom Furniture</a>
@@ -101,9 +188,11 @@ const Navbar = () => {
                           <a>Heirloom Accessories</a>
                         </li>
                       </ul>
-                    </li>
-                    <li>
-                      <a>The Sebastian Cox Kitchen</a>
+                    </SubMenuList>
+                    <SubMenuList>
+                      <SubMenuListHeading>
+                        The Sebastian Cox Kitchen
+                      </SubMenuListHeading>
                       <ul>
                         <li>
                           <a>Sebastian Cox Projects</a>
@@ -112,9 +201,11 @@ const Navbar = () => {
                           <a>Sebastian Cox Catologue</a>
                         </li>
                       </ul>
-                    </li>
-                    <li>
-                      <a>The Haberdasher&apos;s Kitchen</a>
+                    </SubMenuList>
+                    <SubMenuList>
+                      <SubMenuListHeading>
+                        The Haberdasher&apos;s Kitchen
+                      </SubMenuListHeading>
                       <ul>
                         <li>
                           <a>Haberdasher&apos;s Projects</a>
@@ -123,228 +214,239 @@ const Navbar = () => {
                           <a>Haberdasher&apos;s Catalogue</a>
                         </li>
                       </ul>
-                    </li>
+                    </SubMenuList>
                   </ul>
-                </SubMenu>
-              </li>
-              <li>
+                </LongSubMenu>
+              </NavListItem>
+              <NavListItem>
                 <a>Design Service</a>
-              </li>
-              <li>
+              </NavListItem>
+              <NavListItem>
                 <a>Brochure & Book</a>
-              </li>
-              <li>
+              </NavListItem>
+              <NavListItem>
                 <a>Shop</a>
-                <SubMenu>
+                <LongSubMenu>
+                  <LongSubMenuList1>
+                    <ul>
+                      <SubMenuList>
+                        <SubMenuListHeading>New Arrivals</SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>Mid-Centure Pendants</a>
+                          </li>
+                          <li>
+                            <a>Milk Glass Task Light</a>
+                          </li>
+                          <li>
+                            <a>deVOL Cupboard Catch</a>
+                          </li>
+                          <li>
+                            <a>Antique Silver Hardware</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                      <SubMenuList>
+                        <SubMenuListHeading>Taps & Sinks</SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>Aged Brass Taps</a>
+                          </li>
+                          <li>
+                            <a>Antique Silver Taps</a>
+                          </li>
+                          <li>
+                            <a>Chrome & Nickel Taps</a>
+                          </li>
+                          <li>
+                            <a>deVOL Sinks</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                      <SubMenuList>
+                        <SubMenuListHeading>Knobs & Handles</SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>Handcrafted Fittings</a>
+                          </li>
+                          <li>
+                            <a>Standard Fittings</a>
+                          </li>
+                          <li>
+                            <a>Vent Covers</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                      <SubMenuList>
+                        <SubMenuListHeading>
+                          Lighting & Electrical
+                        </SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>Pendant Lights</a>
+                          </li>
+                          <li>
+                            <a>Wall Lights</a>
+                          </li>
+                          <li>
+                            <a>Lamps</a>
+                          </li>
+                          <li>
+                            <a>Switches & Sockets</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                      <SubMenuList>
+                        <SubMenuListHeading>
+                          Hangers & Brackets
+                        </SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>Hanging Rails</a>
+                          </li>
+                          <li>
+                            <a>Curtain Rails</a>
+                          </li>
+                          <li>
+                            <a>The Pot Hanger</a>
+                          </li>
+                          <li>
+                            <a>Shelf Brackets</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                    </ul>
+                  </LongSubMenuList1>
+                  <LongSubMenuList2>
+                    <ul>
+                      <SubMenuList>
+                        <SubMenuListHeading>Furniture</SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>Stools & Chairs</a>
+                          </li>
+                          <li>
+                            <a>Tables</a>
+                          </li>
+                          <li>
+                            <a>Laundry Airers</a>
+                          </li>
+                          <li>
+                            <a>Decorated Cupboards</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                      <SubMenuList>
+                        <SubMenuListHeading>Bathrooms</SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>The Victorian Washstand</a>
+                          </li>
+                          <li>
+                            <a>Bathroom Taps</a>
+                          </li>
+                          <li>
+                            <a>The Clothes Horse</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                      <SubMenuList>
+                        <SubMenuListHeading>Homeware</SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>Scented candles</a>
+                          </li>
+                          <li>
+                            <a>Heirloom Platters</a>
+                          </li>
+                          <li>
+                            <a>The Amber Glaze Teapot</a>
+                          </li>
+                          <li>
+                            <a>deVOL Jigsaw Puzzles</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                      <SubMenuList>
+                        <SubMenuListHeading>Handmade Tiles</SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>Emerald Green Tiles</a>
+                          </li>
+                          <li>
+                            <a>Crackle Metro Tiles</a>
+                          </li>
+                          <li>
+                            <a>Cream Subway Tiles</a>
+                          </li>
+                          <li>
+                            <a>Lace Market Tiles</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                      <SubMenuList>
+                        <SubMenuListHeading>Collections</SubMenuListHeading>
+                        <ul>
+                          <li>
+                            <a>For The Love of Kitchens</a>
+                          </li>
+                          <li>
+                            <a>The Heirloom Collection</a>
+                          </li>
+                          <li>
+                            <a>the Grand Tour Collection</a>
+                          </li>
+                          <li>
+                            <a>Porcelain Pendant Lights</a>
+                          </li>
+                        </ul>
+                      </SubMenuList>
+                    </ul>
+                  </LongSubMenuList2>
+                </LongSubMenu>
+              </NavListItem>
+              <NavListItem>
+                <a>About Us</a>
+                <ShortSubMenu>
                   <ul>
                     <li>
-                      <a>New Arrivals</a>
-                      <ul>
-                        <li>
-                          <a>Mid-Centure Pendants</a>
-                        </li>
-                        <li>
-                          <a>Milk Glass Task Light</a>
-                        </li>
-                        <li>
-                          <a>deVOL Cupboard Catch</a>
-                        </li>
-                        <li>
-                          <a>Antique Silver Hardware</a>
-                        </li>
-                      </ul>
+                      <a>Our Story</a>
                     </li>
                     <li>
-                      <a>Taps & Sinks</a>
-                      <ul>
-                        <li>
-                          <a>Aged Brass Taps</a>
-                        </li>
-                        <li>
-                          <a>Antique Silver Taps</a>
-                        </li>
-                        <li>
-                          <a>Chrome & Nickel Taps</a>
-                        </li>
-                        <li>
-                          <a>deVOL Sinks</a>
-                        </li>
-                      </ul>
+                      <a>Meet the Staff</a>
                     </li>
                     <li>
-                      <a>Knobs & Handles</a>
-                      <ul>
-                        <li>
-                          <a>Handcrafted Fittings</a>
-                        </li>
-                        <li>
-                          <a>Standard Fittings</a>
-                        </li>
-                        <li>
-                          <a>Vent Covers</a>
-                        </li>
-                      </ul>
+                      <a>deVOL&apos;s TV Show</a>
                     </li>
                     <li>
-                      <a>Lighting & Electrical</a>
-                      <ul>
-                        <li>
-                          <a>Pendant Lights</a>
-                        </li>
-                        <li>
-                          <a>Wall Lights</a>
-                        </li>
-                        <li>
-                          <a>Lamps</a>
-                        </li>
-                        <li>
-                          <a>Switches & Sockets</a>
-                        </li>
-                      </ul>
+                      <a>Our Journal</a>
                     </li>
                     <li>
-                      <a>Hangers & Brackets</a>
-                      <ul>
-                        <li>
-                          <a>Hanging Rails</a>
-                        </li>
-                        <li>
-                          <a>Curtain Rails</a>
-                        </li>
-                        <li>
-                          <a>The Pot Hanger</a>
-                        </li>
-                        <li>
-                          <a>Shelf Brackets</a>
-                        </li>
-                      </ul>
+                      <a>Press</a>
                     </li>
                     <li>
-                      <a>Furniture</a>
-                      <ul>
-                        <li>
-                          <a>Stools & Chairs</a>
-                        </li>
-                        <li>
-                          <a>Tables</a>
-                        </li>
-                        <li>
-                          <a>Laundry Airers</a>
-                        </li>
-                        <li>
-                          <a>Decorated Cupboards</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a>Bathrooms</a>
-                      <ul>
-                        <li>
-                          <a>The Victorian Washstand</a>
-                        </li>
-                        <li>
-                          <a>Bathroom Taps</a>
-                        </li>
-                        <li>
-                          <a>The Clothes Horse</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a>Homeware</a>
-                      <ul>
-                        <li>
-                          <a>Scented candles</a>
-                        </li>
-                        <li>
-                          <a>Heirloom Platters</a>
-                        </li>
-                        <li>
-                          <a>The Amber Glaze Teapot</a>
-                        </li>
-                        <li>
-                          <a>deVOL Jigsaw Puzzles</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a>Handmade Tiles</a>
-                      <ul>
-                        <li>
-                          <a>Emerald Green Tiles</a>
-                        </li>
-                        <li>
-                          <a>Crackle Metro Tiles</a>
-                        </li>
-                        <li>
-                          <a>Cream Subway Tiles</a>
-                        </li>
-                        <li>
-                          <a>Lace Market Tiles</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a>Collections</a>
-                      <ul>
-                        <li>
-                          <a>For The Love of Kitchens</a>
-                        </li>
-                        <li>
-                          <a>The Heirloom Collection</a>
-                        </li>
-                        <li>
-                          <a>the Grand Tour Collection</a>
-                        </li>
-                        <li>
-                          <a>Porcelain Pendant Lights</a>
-                        </li>
-                      </ul>
+                      <a>Careers</a>
                     </li>
                   </ul>
-                </SubMenu>
-              </li>
-              <li>
-                <a>About Us</a>
-                <ul>
-                  <li>
-                    <a>Our Story</a>
-                  </li>
-                  <li>
-                    <a>Meet the Staff</a>
-                  </li>
-                  <li>
-                    <a>deVOL's TV Show</a>
-                  </li>
-                  <li>
-                    <a>Our Journal</a>
-                  </li>
-                  <li>
-                    <a>Press</a>
-                  </li>
-                  <li>
-                    <a>Careers</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
+                </ShortSubMenu>
+              </NavListItem>
+              <NavListItem>
                 <a>Contact</a>
-                <ul>
-                  <li>
-                    <a>Kitchen Enquiries</a>
-                  </li>
-                  <li>
-                    <a>Online Accesory Sales</a>
-                  </li>
-                  <li>
-                    <a>Our Showrooms</a>
-                  </li>
-                </ul>
-              </li>
+                <ShortSubMenu>
+                  <ul>
+                    <li>
+                      <a>Kitchen Enquiries</a>
+                    </li>
+                    <li>
+                      <a>Online Accesory Sales</a>
+                    </li>
+                    <li>
+                      <a>Our Showrooms</a>
+                    </li>
+                  </ul>
+                </ShortSubMenu>
+              </NavListItem>
             </ul>
-            <div>
-              <a>Basket</a>
-            </div>
           </Nav>
         </NavContainer>
       </Header>
