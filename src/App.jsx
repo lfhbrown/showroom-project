@@ -8,15 +8,20 @@ import Shop from "./components/Shop Components/Shop";
 import Gallery from "./components/Gallery/Gallery";
 
 const AppContainer = styled.div`
-  background-color: #ffffff;
-  min-height: 100vh; /* Ensures the container takes up the full viewport height */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distributes the space between items */
+  min-height: 100vh; /* Full viewport height */
 `;
-const NavBarDiv = styled.div``;
+const NavBarDiv = styled.div`
+  position: sticky; /* Required for z-index to take effect */
+  z-index: 9999; /* Ensure it appears above everything */
+  width: 100%;
+`;
 const SignUpDiv = styled.div``;
-const FooterDiv = styled.div``;
+const FooterDiv = styled.div`
+  flex: 1; /* Pushes the footer to the bottom */
+`;
+const GalleryDiv = styled.div``;
 
 function App() {
   return (
@@ -24,6 +29,10 @@ function App() {
       <NavBarDiv>
         <Navbar />
       </NavBarDiv>
+
+      <GalleryDiv>
+        <Gallery />
+      </GalleryDiv>
 
       <SignUpDiv>
         <SignUp />

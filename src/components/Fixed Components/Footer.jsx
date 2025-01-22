@@ -1,4 +1,12 @@
 import { styled } from "styled-components";
+import {
+  TiSocialFacebook,
+  TiSocialInstagram,
+  TiSocialYoutube,
+  TiSocialTumbler,
+  TiSocialTwitter,
+  TiSocialPinterest,
+} from "react-icons/ti";
 
 const FooterContainer = styled.div`
   width: 100%; /* Ensure it spans the entire width */
@@ -15,7 +23,17 @@ const FooterColumnContainer = styled.div`
   justify-content: space-around; /* Even spacing between columns */
   width: 100%; /* Span full width of the footer */
 `;
-
+const FooterColumn1 = styled.div`
+  display: flex;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+  div {
+    align-content: flex-end;
+  }
+`;
 const FooterColumn2 = styled.div`
   display: flex;
   text-align: center;
@@ -35,9 +53,14 @@ const FooterColumn2 = styled.div`
     text-decoration: none;
     color: #595959;
   }
-  &:hover a {
-    border-bottom: solid;
-  }
+`;
+const SocialIcons = styled.div`
+  width: 100%;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adds space between the icons */
+  padding-top: 10px;
 `;
 const FooterColumn3 = styled.div`
   display: flex;
@@ -144,51 +167,71 @@ const Region = styled.div`
     padding: 5px;
   }
 `;
+const FooterLink = styled.a`
+  &:hover {
+    border-bottom: solid 1px;
+  }
+  &:hover address {
+    border-bottom: solid 1px;
+  }
+`;
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterColumnContainer>
+        <FooterColumn1>
+          <img></img>
+          <h1>deVOL</h1>
+          <div>
+            <h2>Follow Us 😉</h2>
+            <SocialIcons>
+              <TiSocialFacebook />
+              <TiSocialInstagram />
+              <TiSocialYoutube />
+              <TiSocialTumbler />
+              <TiSocialTwitter />
+              <TiSocialPinterest />
+            </SocialIcons>
+          </div>
+        </FooterColumn1>
         <FooterColumn2>
           <h2>About</h2>
           <ul>
             <li>
-              <a href="">Our Story</a>
+              <FooterLink href="">Our Story</FooterLink>
             </li>
             <li>
-              <a href="">Media</a>
+              <FooterLink href="">Media</FooterLink>
             </li>
             <li>
-              <a href="">Press</a>
+              <FooterLink href="">Press</FooterLink>
             </li>
             <li>
-              <a href="">Careers</a>
+              <FooterLink href="">Careers</FooterLink>
             </li>
             <li>
-              <a href="">Feedback</a>
+              <FooterLink href="">Feedback</FooterLink>
             </li>
           </ul>
-          <div>
-            <h2>Social Images</h2>
-          </div>
         </FooterColumn2>
 
         <FooterColumn3>
           <h2>Support</h2>
           <ul>
             <li>
-              <a href="">Ordering Online</a>
+              <FooterLink href="">Ordering Online</FooterLink>
             </li>
             <li>
-              <a href="">Delivery</a>
+              <FooterLink href="">Delivery</FooterLink>
             </li>
             <li>
-              <a href="">Returns</a>
+              <FooterLink href="">Returns</FooterLink>
             </li>
             <li>
-              <a href="">Help & FAQs</a>
+              <FooterLink href="">Help & FAQs</FooterLink>
             </li>
             <li>
-              <a href="">Contact</a>
+              <FooterLink href="">Contact</FooterLink>
             </li>
           </ul>
         </FooterColumn3>
@@ -197,9 +240,7 @@ const Footer = () => {
           <h2>Contact</h2>
           <ul>
             <li>
-              <a href="">
-                <address>Location </address>
-              </a>
+              <FooterLink href="">Location</FooterLink>
             </li>
             <li>
               <address>Phone</address>
@@ -208,9 +249,7 @@ const Footer = () => {
               <address>Email</address>
             </li>
             <li>
-              <a href="">
-                <address>Location </address>
-              </a>
+              <FooterLink href="">Location</FooterLink>
             </li>
             <li>
               <address>Phone</address>
@@ -224,9 +263,7 @@ const Footer = () => {
         <FooterColumn5>
           <ul>
             <li>
-              <a href="">
-                <address>Location </address>
-              </a>
+              <FooterLink href="">Location</FooterLink>
             </li>
             <li>
               <address>Phone</address>
@@ -235,9 +272,7 @@ const Footer = () => {
               <address>Email</address>
             </li>
             <li>
-              <a href="">
-                <address>Location </address>
-              </a>
+              <FooterLink href="">Location</FooterLink>
             </li>
             <li>
               <address>Phone</address>
@@ -251,9 +286,7 @@ const Footer = () => {
         <FooterColumn6>
           <ul>
             <li>
-              <a href="">
-                <address>Location </address>
-              </a>
+              <FooterLink href="">Location</FooterLink>
             </li>
             <li>
               <address>Phone</address>
@@ -262,9 +295,7 @@ const Footer = () => {
               <address>Email</address>
             </li>
             <li>
-              <a href="">
-                <address>Location </address>
-              </a>
+              <FooterLink href="">Location</FooterLink>
             </li>
             <li>
               <address>Phone</address>
@@ -282,14 +313,14 @@ const Footer = () => {
         </CorpInc>
 
         <LegalLinks>
-          <a>Cookies</a>
-          <a>Privacy</a>
-          <a>Terms & Conditions</a>
+          <FooterLink>Cookies</FooterLink>
+          <FooterLink>Privacy</FooterLink>
+          <FooterLink>Terms & Conditions</FooterLink>
         </LegalLinks>
 
         <Region>
-          <a>USA & Canada</a>
-          <a>Rest of the World</a>
+          <FooterLink>USA & Canada</FooterLink>
+          <FooterLink>Rest of the World</FooterLink>
         </Region>
       </FooterLinksContainer>
     </FooterContainer>
