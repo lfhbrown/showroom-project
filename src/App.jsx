@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { styled } from "styled-components";
-import Navbar from "./components/Fixed Components/Navbar";
-import Footer from "./components/Fixed Components/Footer";
-import SignUp from "./components/Modal/Signup";
-import Showroom from "./components/Showroom Components/Showroom";
-import Shop from "./components/Shop Components/Shop";
-import Gallery from "./components/Gallery/Gallery";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import SignUp from "./components/Signup";
+import Showroom from "./components/Showroom";
+// import Shop from "./Shop";
+import Gallery from "./components/Gallery";
 
 const AppContainer = styled.div`
   display: flex;
@@ -17,11 +16,15 @@ const NavBarDiv = styled.div`
   z-index: 9999; /* Ensure it appears above everything */
   width: 100%;
 `;
-const SignUpDiv = styled.div``;
-const FooterDiv = styled.div`
-  flex: 1; /* Pushes the footer to the bottom */
+const GalleryDiv = styled.div`
+  overflow: hidden;
 `;
-const GalleryDiv = styled.div``;
+const SignUpDiv = styled.div`
+  overflow: hidden;
+`;
+const FooterDiv = styled.div`
+  margin-top: auto; /* Pushes the footer to the bottom of the page */
+`;
 
 function App() {
   return (
@@ -33,7 +36,13 @@ function App() {
       <GalleryDiv>
         <Gallery />
       </GalleryDiv>
-
+      <div>
+        <h1>Simple Furniture, Beautifully Made</h1>
+      </div>
+      <div>
+        <h2>Our Kitchens</h2>
+      </div>
+      <Showroom></Showroom>
       <SignUpDiv>
         <SignUp />
       </SignUpDiv>

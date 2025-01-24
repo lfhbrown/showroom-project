@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import logo from "../assets/deVOL-logo.png";
+import logo from "./assets/navbar/deVOL-logo.png";
 
 const Header = styled.header`
   width: 100%;
@@ -39,6 +39,7 @@ const Logo = styled.img`
   height: auto; /* Maintains aspect ratio */
   padding-bottom: 10px;
   cursor: pointer;
+  z-index: 1;
 `;
 
 const LongSubMenu = styled.div`

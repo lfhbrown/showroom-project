@@ -1,13 +1,40 @@
 import { styled } from "styled-components";
 import { useState, useEffect } from "react";
-import GalleryImage1 from "../assets/Gallery 1.jpg";
-import GalleryImage2 from "../assets/Gallery 2.jpg";
-import GalleryImage3 from "../assets/Gallery 3.jpg";
-import GalleryImage4 from "../assets/Gallery 4.jpg";
-import GalleryImage5 from "../assets/Gallery 5.jpg";
-import GalleryImage6 from "../assets/Gallery 6.jpg";
-import GalleryImage7 from "../assets/Gallery 7.jpg";
+import GalleryImage1 from "./assets/gallery/Gallery 1.jpg";
+import GalleryImage2 from "./assets/gallery/Gallery 2.jpg";
+import GalleryImage3 from "./assets/gallery/Gallery 3.jpg";
+import GalleryImage4 from "./assets/gallery/Gallery 4.jpg";
+import GalleryImage5 from "./assets/gallery/Gallery 5.jpg";
+import GalleryImage6 from "./assets/gallery/Gallery 6.jpg";
+import GalleryImage7 from "./assets/gallery/Gallery 7.jpg";
 
+const GalleryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 1000px; /* Ensures the container has a fixed height */
+  z-index: 1; /* Lower z-index for the gallery container */
+  position: relative;
+  overflow: hidden; /* Hides the overflow content */
+`;
+const GalleryImage = styled.div`
+  width: 100%; /* Makes the image stretch to the full width of the screen */
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* Lower z-index for the gallery container */
+  img {
+    width: 100%; /* Makes the image stretch to the full width of the screen */
+    height: 100%;
+    object-fit: cover; /* Ensures the image scales properly without distortion */
+    z-index: 1; /* Ensures image stays behind interactive elements */
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+`;
 const ArrowRight = styled.button`
   display: flex;
   justify-content: center;
@@ -63,33 +90,6 @@ const ArrowLeft = styled.button`
   }
 `;
 
-const GalleryContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 1000px; /* Ensures the container has a fixed height */
-  z-index: 1; /* Lower z-index for the gallery container */
-  position: relative;
-  overflow: hidden; /* Hides the overflow content */
-`;
-const GalleryImage = styled.div`
-  width: 100%; /* Makes the image stretch to the full width of the screen */
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  z-index: 1; /* Lower z-index for the gallery container */
-  img {
-    width: 100%; /* Makes the image stretch to the full width of the screen */
-    height: 100%;
-    object-fit: cover; /* Ensures the image scales properly without distortion */
-    z-index: 1; /* Ensures image stays behind interactive elements */
-    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-`;
 const GalleryButtons = styled.div`
   display: flex;
   justify-content: space-between; /* Spaces the buttons evenly */

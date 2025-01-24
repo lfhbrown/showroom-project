@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { useState } from "react";
-import SignupModal from "./SignupModal";
+import SignupModal from "./Modal/SignupModal";
 import "@fontsource/eb-garamond";
 
 const SignUpContainer = styled.div`

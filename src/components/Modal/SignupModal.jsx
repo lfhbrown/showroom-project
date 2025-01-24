@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import PropTypes from "prop-types";
-import logo from "../assets/deVOL-image-modal.jpg";
+import logo from "../assets/modal/deVOL-image-modal.jpg";
 
 const Overlay = styled.div`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -11,7 +11,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   animation: fadeIn 0.5s ease-in-out;
-  z-index: 1000; /* Ensures the overlay is above other elements */
+  z-index: 9999; /* Ensures the overlay is above other elements */
   @keyframes fadeIn {
     from {
       opacity: 0;
