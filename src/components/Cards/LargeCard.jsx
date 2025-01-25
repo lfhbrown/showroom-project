@@ -34,7 +34,6 @@ const Content = styled.div`
   justify-content: flex-end;
   align-items: flex-start; /* Align text to the left */
 `;
-
 const LargeCard = ({ img1, img2, h1Text, spanText, pText }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (

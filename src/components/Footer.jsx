@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import absColumn from "./FNSubcomponents/absColumn";
 import {
   TiSocialFacebook,
   TiSocialInstagram,
@@ -25,7 +26,7 @@ const FooterColumnContainer = styled.div`
   width: 100%; /* Span full width of the footer */
   overflow: hidden;
 `;
-const FooterColumn1 = styled.div`
+const SocialColumn = styled.div`
   display: flex;
   text-align: center;
   align-content: center;
@@ -181,8 +182,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterColumnContainer>
-        <FooterColumn1>
-          <img></img>
+        <SocialColumn>
           <h1>deVOL</h1>
           <div>
             <h2>Follow Us 😉</h2>
@@ -195,7 +195,8 @@ const Footer = () => {
               <TiSocialPinterest />
             </SocialIcons>
           </div>
-        </FooterColumn1>
+        </SocialColumn>
+        <absColumn h2Text="Customer Care" />
         <FooterColumn2>
           <h2>About</h2>
           <ul>

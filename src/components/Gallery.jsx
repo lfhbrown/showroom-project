@@ -29,7 +29,7 @@ const GalleryImage = styled.div`
     height: 100%;
     object-fit: cover; /* Ensures the image scales properly without distortion */
     z-index: 1; /* Ensures image stays behind interactive elements */
-    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
     position: absolute;
     top: 0;
     left: 0;
@@ -43,15 +43,17 @@ const ArrowRight = styled.button`
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2; /* Ensures buttons are above other elements */
+  z-index: 2;
   width: 100px;
   height: 100px;
   background-color: transparent;
   border: none;
   cursor: pointer;
   outline: none;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
-  border-radius: 50%; /* Optional: Circular border for better aesthetics */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+
   &:before {
     content: "";
     display: block;
@@ -60,6 +62,11 @@ const ArrowRight = styled.button`
     border-right: 8px solid white;
     border-top: 8px solid white;
     transform: rotate(45deg);
+  }
+
+  &:hover {
+    transform: translateY(-50%) scale(1.2); /* Slightly enlarge on hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
   }
 `;
 const ArrowLeft = styled.button`
@@ -70,15 +77,17 @@ const ArrowLeft = styled.button`
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2; /* Ensures buttons are above other elements */
+  z-index: 2;
   width: 100px;
   height: 100px;
   background-color: transparent;
   border: none;
   cursor: pointer;
   outline: none;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   &:before {
     content: "";
     display: block;
@@ -87,6 +96,11 @@ const ArrowLeft = styled.button`
     border-left: 8px solid white;
     border-top: 8px solid white;
     transform: rotate(-45deg);
+  }
+
+  &:hover {
+    transform: translateY(-50%) scale(1.2); /* Slightly enlarge on hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
   }
 `;
 
