@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SignUp from "./components/Signup";
 import Showroom from "./components/Showroom";
-// import Shop from "./Shop";
+import Shop from "./components/Shop";
 import Gallery from "./components/Gallery";
 
 const AppContainer = styled.div`
@@ -99,6 +99,7 @@ function App() {
           <p>View All</p>
         </a>
       </CategoryDiv>
+      <Shop />
       <SignUpDiv>
         <SignUp />
       </SignUpDiv>
