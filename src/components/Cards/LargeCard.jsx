@@ -1,14 +1,58 @@
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const CardContainer = styled.div``;
-const Content = styled.div``;
+const CardContainer = styled.div`
+  position: relative;
+  height: 1075px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  /* border: 1px solid #000000; */
+`;
+const Img = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 900px;
+  object-fit: cover;
+  opacity: ${(props) => (props.visible ? 1 : 0)}; /* Control visibility */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition effect */
+`;
+const Content = styled.div`
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding-left: 24px;
+  padding-bottom: 12px;
+  justify-content: flex-end;
+  align-items: flex-start; /* Align text to the left */
+`;
 
 const LargeCard = ({ img1, img2, h1Text, spanText, pText }) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <CardContainer>
-      <img src={img1} alt={h1Text} />
-      <img src={img2} alt={h1Text} />
+      <Img
+        src={img1}
+        alt={h1Text}
+        visible={!isHovered}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      />
+      <Img
+        src={img2}
+        alt={h1Text}
+        visible={isHovered}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      />
       <Content>
         <h1>{h1Text}</h1>
         <span>{spanText}</span>

@@ -13,6 +13,7 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 
   ul li {
     margin-bottom: 25px; /* Adds spacing between list items */
@@ -22,6 +23,7 @@ const FooterColumnContainer = styled.div`
   display: flex; /* Flexbox for horizontal alignment */
   justify-content: space-around; /* Even spacing between columns */
   width: 100%; /* Span full width of the footer */
+  overflow: hidden;
 `;
 const FooterColumn1 = styled.div`
   display: flex;

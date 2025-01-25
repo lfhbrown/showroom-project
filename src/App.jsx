@@ -19,6 +19,20 @@ const NavBarDiv = styled.div`
 const GalleryDiv = styled.div`
   overflow: hidden;
 `;
+const CenteredDiv = styled.div`
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  height: 200px; /* Adjust as needed for spacing */
+  text-align: center; /* Center-align text inside */
+`;
+const CategoryDiv = styled.div`
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  height: 100px; /* Adjust as needed for spacing */
+  text-align: center; /* Center-align text inside */
+`;
 const SignUpDiv = styled.div`
   overflow: hidden;
 `;
@@ -36,12 +50,12 @@ function App() {
       <GalleryDiv>
         <Gallery />
       </GalleryDiv>
-      <div>
+      <CenteredDiv>
         <h1>Simple Furniture, Beautifully Made</h1>
-      </div>
-      <div>
+      </CenteredDiv>
+      <CategoryDiv>
         <h2>Our Kitchens</h2>
-      </div>
+      </CategoryDiv>
       <Showroom></Showroom>
       <SignUpDiv>
         <SignUp />
