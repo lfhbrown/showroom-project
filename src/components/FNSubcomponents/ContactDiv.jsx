@@ -3,28 +3,23 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const absColumnDiv = styled.div`
+const ContactDivContainer = styled.div`
   display: flex;
   text-align: center;
-  align-content: center;
   flex-direction: column;
-  /* border: 1px solid black; */
+  justify-content: center;
 
   ul {
     display: flex;
     flex-direction: column;
     align-content: center;
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
+    padding: 0;
     list-style: none;
   }
-  a {
-    text-decoration: none;
-    color: #595959;
-  }
 `;
-// eslint-disable-next-line react-refresh/only-export-components
 const FooterLink = styled.a`
+  text-decoration: none;
+  color: #595959;
   &:hover {
     border-bottom: solid 1px;
   }
@@ -32,9 +27,9 @@ const FooterLink = styled.a`
     border-bottom: solid 1px;
   }
 `;
-const absColumn = ({ h2Text, li1, li2, li3, li4, li5 }) => {
+const ContactDiv = ({ h2Text, li1, li2, li3, li4, li5, li6 }) => {
   return (
-    <absColumnDiv>
+    <ContactDivContainer>
       <h2>{h2Text}</h2>
       <ul>
         <li>
@@ -52,18 +47,22 @@ const absColumn = ({ h2Text, li1, li2, li3, li4, li5 }) => {
         <li>
           <FooterLink href="">{li5}</FooterLink>
         </li>
+        <li>
+          <FooterLink href="">{li6}</FooterLink>
+        </li>
       </ul>
-    </absColumnDiv>
+    </ContactDivContainer>
   );
 };
 
-absColumn.propTypes = {
+ContactDiv.propTypes = {
   h2Text: PropTypes.string,
   li1: PropTypes.string,
   li2: PropTypes.string,
   li3: PropTypes.string,
   li4: PropTypes.string,
   li5: PropTypes.string,
+  li6: PropTypes.string,
 };
 
-export default absColumn;
+export default ContactDiv;

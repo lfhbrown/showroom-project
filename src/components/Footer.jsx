@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
-import absColumn from "./FNSubcomponents/absColumn";
+import ASDiv from "./FNSubcomponents/ASDiv";
+import ContactDiv from "./FNSubcomponents/ContactDiv";
+import AdditionalContactDiv from "./FNSubcomponents/AdditionalContactDiv";
 import {
   TiSocialFacebook,
   TiSocialInstagram,
@@ -31,31 +33,7 @@ const SocialColumn = styled.div`
   text-align: center;
   align-content: center;
   flex-direction: column;
-  /* border: 1px solid black; */
   justify-content: space-between;
-  div {
-    align-content: flex-end;
-  }
-`;
-const FooterColumn2 = styled.div`
-  display: flex;
-  text-align: center;
-  align-content: center;
-  flex-direction: column;
-  /* border: 1px solid black; */
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
-    list-style: none;
-  }
-  a {
-    text-decoration: none;
-    color: #595959;
-  }
 `;
 const SocialIcons = styled.div`
   width: 100%;
@@ -65,84 +43,6 @@ const SocialIcons = styled.div`
   gap: 20px; /* Adds space between the icons */
   padding-top: 10px;
 `;
-const FooterColumn3 = styled.div`
-  display: flex;
-  text-align: center;
-  align-content: center;
-  flex-direction: column;
-  /* border: 1px solid black; */
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
-    list-style: none;
-  }
-
-  a {
-    text-decoration: none;
-    color: #595959;
-  }
-`;
-const FooterColumn4 = styled.div`
-  display: flex;
-  text-align: center;
-  align-content: center;
-  flex-direction: column;
-  /* border: 1px solid black; */
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
-    list-style: none;
-  }
-
-  a {
-    text-decoration: none;
-    color: #595959;
-  }
-`;
-const FooterColumn5 = styled.div`
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  padding-top: 66px;
-  color: #595959;
-  /* border: 1px solid black; */
-
-  ul {
-    list-style: none;
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
-  }
-  a {
-    text-decoration: none;
-    color: #595959;
-  }
-`;
-const FooterColumn6 = styled.div`
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  padding-top: 66px;
-
-  /* border: 1px solid black; */
-
-  ul {
-    list-style: none;
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
-  }
-  a {
-    text-decoration: none;
-    color: #595959;
-  }
-`;
 const FooterLinksContainer = styled.div`
   display: flex; /* Flexbox for horizontal alignment */
   justify-content: space-around; /* Even spacing between columns */
@@ -151,21 +51,16 @@ const FooterLinksContainer = styled.div`
   font-size: 12px;
 `;
 const CorpInc = styled.div`
-  /* border: 1px solid black; */
   padding-right: 75px;
 `;
 const LegalLinks = styled.div`
   display: flex;
   align-content: flex-start;
-  /* border: 1px solid black; */
-
   a {
     padding: 5px;
   }
 `;
 const Region = styled.div`
-  /* border: 1px solid black; */
-
   a {
     padding: 5px;
   }
@@ -196,118 +91,33 @@ const Footer = () => {
             </SocialIcons>
           </div>
         </SocialColumn>
-        <absColumn h2Text="Customer Care" />
-        <FooterColumn2>
-          <h2>About</h2>
-          <ul>
-            <li>
-              <FooterLink href="">Our Story</FooterLink>
-            </li>
-            <li>
-              <FooterLink href="">Media</FooterLink>
-            </li>
-            <li>
-              <FooterLink href="">Press</FooterLink>
-            </li>
-            <li>
-              <FooterLink href="">Careers</FooterLink>
-            </li>
-            <li>
-              <FooterLink href="">Feedback</FooterLink>
-            </li>
-          </ul>
-        </FooterColumn2>
+        <ASDiv
+          h2Text="About"
+          li1="Our Story"
+          li2="Media"
+          li3="Press"
+          li4="Careers"
+          li5="Feedback"
+        />
+        <ASDiv
+          h2Text="Support"
+          li1="Ordering Online"
+          li2="Delivery"
+          li3="Returns"
+          li4="Help & FAQs"
+          li5="Contact"
+        />
+        <ContactDiv
+          h2Text="Contact"
+          li1="Location"
+          li2="Phone"
+          li3="Email"
+          li4="Location"
+          li5="Phone"
+          li6="Email"
+        />
 
-        <FooterColumn3>
-          <h2>Support</h2>
-          <ul>
-            <li>
-              <FooterLink href="">Ordering Online</FooterLink>
-            </li>
-            <li>
-              <FooterLink href="">Delivery</FooterLink>
-            </li>
-            <li>
-              <FooterLink href="">Returns</FooterLink>
-            </li>
-            <li>
-              <FooterLink href="">Help & FAQs</FooterLink>
-            </li>
-            <li>
-              <FooterLink href="">Contact</FooterLink>
-            </li>
-          </ul>
-        </FooterColumn3>
-
-        <FooterColumn4>
-          <h2>Contact</h2>
-          <ul>
-            <li>
-              <FooterLink href="">Location</FooterLink>
-            </li>
-            <li>
-              <address>Phone</address>
-            </li>
-            <li>
-              <address>Email</address>
-            </li>
-            <li>
-              <FooterLink href="">Location</FooterLink>
-            </li>
-            <li>
-              <address>Phone</address>
-            </li>
-            <li>
-              <address>Email</address>
-            </li>
-          </ul>
-        </FooterColumn4>
-
-        <FooterColumn5>
-          <ul>
-            <li>
-              <FooterLink href="">Location</FooterLink>
-            </li>
-            <li>
-              <address>Phone</address>
-            </li>
-            <li>
-              <address>Email</address>
-            </li>
-            <li>
-              <FooterLink href="">Location</FooterLink>
-            </li>
-            <li>
-              <address>Phone</address>
-            </li>
-            <li>
-              <address>Email</address>
-            </li>
-          </ul>
-        </FooterColumn5>
-
-        <FooterColumn6>
-          <ul>
-            <li>
-              <FooterLink href="">Location</FooterLink>
-            </li>
-            <li>
-              <address>Phone</address>
-            </li>
-            <li>
-              <address>Email</address>
-            </li>
-            <li>
-              <FooterLink href="">Location</FooterLink>
-            </li>
-            <li>
-              <address>Phone</address>
-            </li>
-            <li>
-              <address>Email</address>
-            </li>
-          </ul>
-        </FooterColumn6>
+        <AdditionalContactDiv />
       </FooterColumnContainer>
 
       <FooterLinksContainer>

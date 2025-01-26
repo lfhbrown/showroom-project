@@ -40,8 +40,8 @@ const Showroom = () => {
         <LargeCard
           img1={shakerKitchen1}
           img2={shakerKitchen2}
-          h1Text="The Real Shaker Kitchen"
-          spanText="$20,000-$60,000"
+          h1Text="The Classic English Kitchen"
+          spanText="$40,000-$100,000"
           pText="Beautifully understated and economical furniture, inspired by authentic Shaker carpentry."
         />
       </LargeCardContainer>

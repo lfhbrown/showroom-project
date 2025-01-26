@@ -30,8 +30,7 @@ const Content = styled.div`
   flex-direction: column;
   padding-left: 24px;
   padding-bottom: 12px;
-  justify-content: flex-end;
-  align-items: flex-start; /* Align text to the left */
+  padding-right: 24px;
 `;
 const SmallCard = ({ img1, img2, h1Text, spanText, pText }) => {
   const [isHovered, setIsHovered] = useState(false);

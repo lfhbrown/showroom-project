@@ -148,7 +148,7 @@ const images = [
   GalleryImage5,
   GalleryImage6,
   GalleryImage7,
-]; // Add more images here
+];
 
 const Gallery = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

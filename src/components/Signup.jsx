@@ -28,21 +28,22 @@ const SignUpContainer = styled.div`
 `;
 
 const SignUp = () => {
-  const [openModal, closeModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
-  return openModal ? (
-    <SignupModal onClose={() => closeModal(false)} />
-  ) : (
-    <SignUpContainer>
-      <h1>LET&apos;S KEEP IN TOUCH</h1>
-      <p>
-        Only ever beautiful, useful, and ispirational things sent straight to
-        you.
-      </p>
-      <button name="Sign me up" onClick={() => closeModal(true)}>
-        Sign me up
-      </button>
-    </SignUpContainer>
+  return (
+    <>
+      <SignUpContainer>
+        <h1>LET&apos;S KEEP IN TOUCH</h1>
+        <p>
+          Only ever beautiful, useful, and inspirational things sent straight to
+          you.
+        </p>
+        <button name="Sign me up" onClick={() => setOpenModal(true)}>
+          Sign me up
+        </button>
+      </SignUpContainer>
+      {openModal && <SignupModal onClose={() => setOpenModal(false)} />}
+    </>
   );
 };
 
