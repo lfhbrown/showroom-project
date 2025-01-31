@@ -49,7 +49,6 @@ const CategoryDiv = styled.div`
   text-align: center; /* Center-align text inside (if applicable) */
   overflow: hidden; /* Prevent content overflow */
   position: relative; /* Maintain positioning context */
-  /* border: 1px solid black; Optional: Border for visualization */
 `;
 const SignUpDiv = styled.div`
   overflow: hidden;

@@ -20,9 +20,12 @@ const SignUpContainer = styled.div`
     border: 1px solid #595959;
     color: #595959;
     cursor: pointer; /* Makes it clear the element is clickable */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+
     &:hover {
       background-color: #27333f;
       color: #ffffff;
+      transform: scale(1.1); /* Enlarges the button slightly */
     }
   }
 `;

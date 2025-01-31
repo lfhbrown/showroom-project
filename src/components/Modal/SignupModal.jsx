@@ -10,7 +10,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
   z-index: 9999; /* Ensures the overlay is above other elements */
   @keyframes fadeIn {
     from {

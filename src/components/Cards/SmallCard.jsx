@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
@@ -9,51 +8,61 @@ const CardContainer = styled.div`
   width: 520px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border-radius: 16px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  overflow: hidden; /* Prevent content from overflowing */
 `;
+
+const ImgWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 600px; /* Maintain the fixed height of the image */
+`;
+
 const Img = styled.img`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 600px;
+  height: 100%;
   object-fit: cover;
-  opacity: ${(props) => (props.visible ? 1 : 0)}; /* Control visibility */
-  transition: opacity 0.5s ease-in-out; /* Smooth transition effect */
+  opacity: ${(props) => (props.visible ? 1 : 0)};
+  transition: opacity 0.5s ease-in-out;
 `;
+
 const Content = styled.div`
-  position: absolute;
-  bottom: 0;
   display: flex;
   flex-direction: column;
   padding-left: 24px;
-  padding-bottom: 12px;
   padding-right: 24px;
+  padding-bottom: 12px;
+  margin-top: 10px; /* Ensures spacing below the image */
 `;
+
 const SmallCard = ({ img1, img2, h1Text, spanText, pText }) => {
   const [isHovered, setIsHovered] = useState(false);
+
   return (
     <CardContainer>
-      <Img
-        src={img1}
-        alt={h1Text}
-        visible={!isHovered}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      />
-      <Img
-        src={img2}
-        alt={h1Text}
-        visible={isHovered}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      />
+      <ImgWrapper>
+        <Img
+          src={img1}
+          alt={h1Text}
+          visible={!isHovered}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        />
+        <Img
+          src={img2}
+          alt={h1Text}
+          visible={isHovered}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        />
+      </ImgWrapper>
       <Content>
-        <h1>{h1Text}</h1>
+        <h2>{h1Text}</h2>
         <span>{spanText}</span>
-        <br />
         <p>{pText}</p>
       </Content>
     </CardContainer>
@@ -67,4 +76,5 @@ SmallCard.propTypes = {
   spanText: PropTypes.string.isRequired,
   pText: PropTypes.string.isRequired,
 };
+
 export default SmallCard;
