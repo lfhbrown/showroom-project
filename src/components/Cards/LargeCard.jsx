@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
@@ -16,7 +16,7 @@ const CardContainer = styled.div`
 const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 900px; /* Ensures consistent image height */
+  height: 900px;
 `;
 
 const Img = styled.img`

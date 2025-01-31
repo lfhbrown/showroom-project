@@ -109,12 +109,13 @@ const SignupModal = ({ onClose }) => {
         <ModalRight>
           <Close onClick={onClose}>✖</Close>
           <EmailSumbit>
-            <h1>Letters from ABC Corp.</h1>
+            <h1>Letters from deVOL</h1>
             <p>
-              Come up with the solutions to your business problems with a little
-              help from us. If you’d like, we’ll write to you every now and then
-              with general inspiration and ideas, and exclusive looks at our new
-              products and services. Just pop your details below and leave the
+              Creating a kitchen and home full of beautifully made, simple,
+              uncontrived things is easy with a little help from us. If you’d
+              like, we’ll write to you every now and then with exclusive looks
+              at our new home accessories, kitchen designs and interiors
+              inspiration and ideas. Just pop your details below and leave the
               rest to us.
             </p>
             <NameEmailForm>

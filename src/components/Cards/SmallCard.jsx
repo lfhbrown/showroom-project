@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
@@ -16,7 +16,7 @@ const CardContainer = styled.div`
 const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 600px; /* Maintain the fixed height of the image */
+  height: 600px;
 `;
 
 const Img = styled.img`
@@ -41,24 +41,31 @@ const Content = styled.div`
 
 const SmallCard = ({ img1, img2, h1Text, spanText, pText }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const hasSecondImage = !!img2; // Check if second image exists
 
   return (
     <CardContainer>
       <ImgWrapper>
-        <Img
-          src={img1}
-          alt={h1Text}
-          visible={!isHovered}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        />
-        <Img
-          src={img2}
-          alt={h1Text}
-          visible={isHovered}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        />
+        {hasSecondImage ? (
+          <>
+            <Img
+              src={img1}
+              alt={h1Text}
+              visible={!isHovered}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            />
+            <Img
+              src={img2}
+              alt={h1Text}
+              visible={isHovered}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            />
+          </>
+        ) : (
+          <Img src={img1} alt={h1Text} visible={true} />
+        )}
       </ImgWrapper>
       <Content>
         <h2>{h1Text}</h2>
@@ -71,7 +78,7 @@ const SmallCard = ({ img1, img2, h1Text, spanText, pText }) => {
 
 SmallCard.propTypes = {
   img1: PropTypes.string.isRequired,
-  img2: PropTypes.string.isRequired,
+  img2: PropTypes.string, // Now optional
   h1Text: PropTypes.string.isRequired,
   spanText: PropTypes.string.isRequired,
   pText: PropTypes.string.isRequired,
